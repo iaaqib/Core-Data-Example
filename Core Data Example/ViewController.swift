@@ -76,19 +76,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     func updateCoreData(value: String, index: Int){
         
-        var appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        var context: NSManagedObjectContext = appDel.managedObjectContext!
+        
+        var managedContext: NSManagedObjectContext = appDelegate.managedObjectContext!
         
         var fetchRequest = NSFetchRequest(entityName: "Shows")
        
         
-        if let fetchResults = appDel.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [NSManagedObject] {
+        if let fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [NSManagedObject] {
             if fetchResults.count != 0{
                 
                 var managedObject = fetchResults[index]
                 managedObject.setValue(value, forKey: "watchList")
                 
-                context.save(nil)
+                managedContext.save(nil)
             }
         }
         
