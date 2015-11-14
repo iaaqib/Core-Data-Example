@@ -12,7 +12,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var showToAdd: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    var updatedValue : String!
     var watchList = [NSManagedObject]()
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     override func viewDidLoad() {
